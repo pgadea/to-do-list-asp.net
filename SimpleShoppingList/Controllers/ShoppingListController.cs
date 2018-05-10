@@ -11,22 +11,22 @@ namespace SimpleShoppingList.Controllers
 {
     public class ShoppingListController : ApiController
     {
-        public static List<ShoppingList> shoppingLists = new List<ShoppingList>
+        public static List<ShoppingList> ShoppingLists = new List<ShoppingList>
         {
             new ShoppingList {Id = 0, Name = "Web", Items =
             {
-                new Item {Name = "ASP.NET"},
-                new Item {Name = "React"},
-                new Item {Name = "JS"}
+                new Item {Id = 0, Name = "ASP.NET", ShoppingListId = 0},
+                new Item {Id = 1, Name = "React", ShoppingListId = 0},
+                new Item {Id = 2, Name = "JS", ShoppingListId = 0}
             }},
-            new ShoppingList {Id = 0, Name = "Mobile"}
+            new ShoppingList {Id = 1, Name = "Mobile"}
         };
 
         // GET: api/ShoppingList/5
         public IHttpActionResult Get(int id)
         {
             var result =
-                shoppingLists.FirstOrDefault(s => s.Id == id);
+                ShoppingLists.FirstOrDefault(s => s.Id == id);
 
             if (result == null)
             {
@@ -39,10 +39,10 @@ namespace SimpleShoppingList.Controllers
         // POST: api/ShoppingList
         public IEnumerable Post([FromBody] ShoppingList newList)
         {
-            newList.Id = shoppingLists.Count;
-            shoppingLists.Add(newList);
+            newList.Id = ShoppingLists.Count;
+            ShoppingLists.Add(newList);
 
-            return shoppingLists;
+            return ShoppingLists;
         }
     }
 }

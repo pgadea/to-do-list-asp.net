@@ -15,12 +15,12 @@ namespace SimpleShoppingList.Models
 
         public int ShoppingListId { get; set; }
 
-        public Item()
-        {
-            Id = 0;
-            Name = string.Empty;
-            Checked = false;
-            ShoppingListId = -1;
-        }
+        //public Item()
+        //{
+        //    Id = 0;
+        //    Name = string.Empty;
+        //    Checked = false;
+        //    ShoppingListId = 1;
+        //}
     }
 }
